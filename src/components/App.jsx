@@ -66,20 +66,22 @@ state = {
         const contacts = this.getFilteredContacts();
 
     return (
-    <div
+    <div className="container"
       style={{
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        fontSize: 30,
+        fontSize: 28,
         color: '#010101'
       }}
     >
         <h1>Phonebook</h1>
         <ContactsForm onSubmit={addContact} />
         <h2>Contacts</h2>
-        <h3>Find contacts by name</h3>
-        <input name="filter" onChange={changeFitler} />
+        <div>
+          <h3>Find contacts by name:</h3>
+          <input name="filter" onChange={changeFitler} className="filter-input"/>
+        </div>
         <ContactsList items={contacts} deleteContact={deleteContact} />
     </div>
   );
@@ -89,11 +91,3 @@ state = {
 
 export default App;
 
-
-
-// const search = target.value.toLowerCase();
-
-//     this.setState((prevState) => {
-//       const filterList = prevState.contacts.filter(contact => contact.name.toLowerCase().includes(search))
-//       return {contacts: filterList}
-//     })
